@@ -71,8 +71,6 @@ function generateCountries(_country1) {
   } while (country2 == country1);
 
   countryNameGuessHeader.innerHTML = country2["Entity"];
-
-  addEventListeners();
 }
 
 function pickRandomCountry() {
@@ -94,6 +92,7 @@ function increaseDeforestationCount(country1, country2, guessHigher) {
   countryDeforestationGuessHeader.style.display = "block";
   deforestationSelectionDiv.style.display = "none";
   orTextHeader.style.opacity = "0";
+
   setTimeout(() => {
     orTextHeader.style.display = "none";
     markIconImg.style.opacity = "0";
@@ -112,12 +111,7 @@ function increaseDeforestationCount(country1, country2, guessHigher) {
       }, 10);
     } else {
       countryDeforestationGuessHeader.innerHTML = country2Deforestation.toLocaleString('en-US') + " ha";
-      console.log(country2Deforestation);
-      console.log(country1Deforestation);
-      console.log(country2Deforestation > country1Deforestation);
-      console.log(country2Deforestation > country1Deforestation && guessHigher == true)
-      console.log();
-      console.log(guessHigher);
+
       if ((country2Deforestation > country1Deforestation && guessHigher == true) || (country2Deforestation < country1Deforestation && guessHigher == false)) {
         markIconImg.src = "icons/correct.svg";
       } else if ((country2Deforestation < country1Deforestation && guessHigher == true) || (country2Deforestation > country1Deforestation && guessHigher == false)) {
@@ -149,3 +143,5 @@ function addEventListeners() {
     increaseDeforestationCount(country1, country2, false);
   })
 }
+
+addEventListeners();
