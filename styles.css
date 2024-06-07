@@ -7,11 +7,65 @@ html, body {
   height: 100%;
 }
 
+h1, h2, h3 {
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+h1 {
+  font-weight: 900;
+  font-style: normal;
+  font-size: 5vw;
+}
+
+h2 {
+  font-weight: 600;
+  font-style: normal;
+  font-size: 3vw;
+}
+
+h3 {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5vw;
+}
+
 .main-container {
   display: flex;
+  flex-direction: row;
 
   width: 100%;
   height: 100%;
+}
+
+.top-container {
+  display: flex;
+
+  position: absolute;
+
+  top: 0px;
+  left: 0px;
+  right: 0px;
+
+  height: auto;
+}
+
+.top-container div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-left: 1.25vw;
+  padding-right: 1.25vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  box-sizing: border-box;
+
+  width: 50%;
+  height: 100%;
+}
+
+.top-left-container {
+  text-align: right;
 }
 
 .left-container, .right-container {
@@ -20,13 +74,17 @@ html, body {
   align-items: center;
   justify-content: center;
 
-  width: 50%;
+  width: 100%;
   height: 100%;
+
+  background-color: rgb(200, 200, 200);
+
+  transition: background-color 0.25s;
 }
 
 .left-container *, .right-container * {
-  margin-top: 1%;
-  margin-bottom: 1%;
+  margin-top: 0.1vw;
+  margin-bottom: 0.1vw;
 }
 
 .left-container {
@@ -41,6 +99,14 @@ html, body {
   border-width: 0px;
   border-left-width: 0.2vw;
   border-left-color: black;
+}
+
+.country-flag {
+  position: relative;
+
+  margin-bottom: 2%;
+
+  width: 20%;
 }
 
 .circle-separator {
@@ -67,7 +133,7 @@ html, body {
   color: white;
 }
 
-.circle-separator h2 {
+.circle-separator h3 {
   height: auto;
 
   transition: opacity 0.35s;
@@ -89,7 +155,7 @@ html, body {
   height: auto;
 }
 
-.more-selection, .less-selection {
+.deforestation-selection div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,20 +164,35 @@ html, body {
 
   width: 100%;
   height: 50%;  
+
+  background-color: transparent;
+
+  border-style: solid;
+  border-radius: 1vw;
+  border-width: 0.3vw;
+
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.deforestation-selection div:hover {
+  border-color: gray;
+  color: gray;
+
+  cursor: pointer;
 }
 
 .more-selection {
-  margin-top: 0%;
-  margin-bottom: 2%;
-
-  background-color: darkgreen;
+  margin-top: 0.5vw;
+  margin-bottom: 0.2vw;
 }
 
 .less-selection {
-  margin-top: 2%;
-  margin-bottom: 0%;
+  margin-bottom: 0.5vw;
+  margin-top: 0.2vw;
+}
 
-  background-color: red;
+.more-selection h2, .less-selection h2 {
+  font-size: 2vw;
 }
 
 #country-deforestation-guess {
