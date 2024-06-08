@@ -1,22 +1,33 @@
 const annualDeforestationFile = new File([], "annual-deforestation.csv");
 const fileReader = new FileReader();
 let annualDeforestationDict = {};
+let mobileDevice;
 
+const header1s = document.querySelectorAll("h1");
+const header2s = document.querySelectorAll("h2");
+const header3s = document.querySelectorAll("h3");
+const mainContainer = document.querySelector(".main-container");
+const topContainerDivs = document.querySelectorAll(".top-container div")
+const topLeftContainer = document.querySelector(".top-left-container");
+const topRightContainer = document.querySelector(".top-right-container");
 const scoreCounterHeader = document.querySelector(".score-counter");
 const highscoreCounterHeader = document.querySelector(".high-score-counter");
 const leftContainer = document.querySelector(".left-container");
 const countryFlagImg = document.querySelector(".country-flag");
 const countryNameHeader = document.querySelector(".country-name");
 const countryDeforestationHeader = document.querySelector(".country-deforestation");
+const circleSeparator = document.querySelector(".circle-separator");
+const orTextHeader = document.querySelector(".or-text");
+const markIconImg = document.querySelector(".mark-icon");
 const rightContainer = document.querySelector(".right-container");
 const countryFlagGuessImg = document.querySelector("#country-flag-guess");
 const countryNameGuessHeader = document.querySelector("#country-name-guess");
 const countryDeforestationGuessHeader = document.querySelector("#country-deforestation-guess");
 const deforestationSelectionDiv = document.querySelector(".deforestation-selection");
+const selectionDivs = document.querySelectorAll(".deforestation-selection div");
+const selectionDivHeaders = document.querySelectorAll(".deforestation-selection div h2");
 const moreSelectionDiv = document.querySelector(".more-selection");
 const lessSelectionDiv = document.querySelector(".less-selection");
-const orTextHeader = document.querySelector(".or-text");
-const markIconImg = document.querySelector(".mark-icon");
 
 let country1;
 let country2;
@@ -62,6 +73,47 @@ function processData(csvData) {
   }
 
   annualDeforestationDict = result;
+
+  mobileDevice = window.innerHeight > window.innerWidth;
+  
+  header1s.forEach((header1) => {
+    header1.style["font-size"] = mobileDevice && "15vw" || "5vw";
+  });
+  header2s.forEach((header2) => {
+    header2.style["font-size"] = mobileDevice && "9vw" || "3vw";
+  });
+  header3s.forEach((header3) => {
+    header3.style["font-size"] = mobileDevice && "4.5vw" || "1.5vw";
+  });
+  
+  mainContainer.style["flex-direction"] = mobileDevice && "column" || "row";
+  topContainerDivs.forEach((topContainerDiv) => {
+    topContainerDiv.style["padding-left"] = mobileDevice && "3.75vw" || "1.25vw";
+    topContainerDiv.style["padding-right"] = mobileDevice && "3.75vw" || "1.25vw";
+    topContainerDiv.style["padding-top"] = mobileDevice && "3vw" || "1vw";
+    topContainerDiv.style["padding-bottom"] = mobileDevice && "3vw" || "1vw";
+  });
+  topLeftContainer.style["text-align"] = mobileDevice && "left" || "right";
+  topRightContainer.style["text-align"] = mobileDevice && "right" || "left";
+  leftContainer.style[mobileDevice && "border-bottom-width" || "border-right-width"] = mobileDevice && "1vw" || "0.2vw";
+  rightContainer.style[mobileDevice && "border-top-width" || "border-left-width"] = mobileDevice && "1vw" || "0.2vw";
+
+  circleSeparator.style.width = mobileDevice && "16vw" || "4vw";
+  circleSeparator.style.height = mobileDevice && "16vw" || "4vw";
+  orTextHeader.style["font-size"] = mobileDevice && "8vw" || "2vw";
+
+  deforestationSelectionDiv.style.width = mobileDevice && "50%" || "30%";
+  selectionDivs.forEach((selectionDiv) => {
+    selectionDiv.style["border-width"] = mobileDevice && "0.9vw" || "0.3vw";
+    selectionDiv.style["border-radius"] = mobileDevice && "3vw" || "1vw";
+  });
+  selectionDivHeaders.forEach((selectionDivHeader) => {
+    selectionDivHeader.style["font-size"] = mobileDevice && "6vw" || "2vw";
+  })
+  moreSelectionDiv.style["margin-top"] = mobileDevice && "1.5vw" || "0.5vw";
+  moreSelectionDiv.style["margin-bottom"] = mobileDevice && "0.6vw" || "0.2vw";
+  lessSelectionDiv.style["margin-top"] = mobileDevice && "0.6vw" || "0.2vw";
+  lessSelectionDiv.style["margin-bottom"] = mobileDevice && "1.5vw" || "0.5vw";
 
   generateCountries(pickRandomCountry());
 }

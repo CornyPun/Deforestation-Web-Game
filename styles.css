@@ -89,16 +89,14 @@ h3 {
 
 .left-container {
   border-style: solid;
+  border-color: black;
   border-width: 0px;
-  border-right-width: 0.2vw;
-  border-right-color: black;
 }
 
 .right-container {
   border-style: solid;
+  border-color: black;
   border-width: 0px;
-  border-left-width: 0.2vw;
-  border-left-color: black;
 }
 
 .country-flag {
@@ -171,12 +169,13 @@ h3 {
   border-radius: 1vw;
   border-width: 0.3vw;
 
-  transition: border-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .deforestation-selection div:hover {
-  border-color: gray;
-  color: gray;
+  background-color: black;
+  border-color: black;
+  color: rgb(200, 200, 200);
 
   cursor: pointer;
 }
@@ -191,7 +190,7 @@ h3 {
   margin-top: 0.2vw;
 }
 
-.more-selection h2, .less-selection h2 {
+.deforestation-selection div h2 {
   font-size: 2vw;
 }
 
