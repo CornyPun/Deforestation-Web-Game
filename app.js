@@ -130,11 +130,11 @@ function generateCountries(_country1) {
 
   do {
     country2 = pickRandomCountry();
+    countryFlagGuessImg.src = "flags/" + country2["Code"] + ".svg";
   } while (country2 == country1);
 
   countryNameGuessHeader.innerHTML = country2["Entity"];
   
-  countryFlagGuessImg.src = "flags/" + country2["Code"] + ".svg";
   countryFlagImg.src = "flags/" + country1["Code"] + ".svg";
 }
 
@@ -178,8 +178,8 @@ function increaseDeforestationCount(country1, country2, guessHigher) {
 
   function increment() {
     if (currentIndex < 100) {
-      currentDeforestationCount = Math.ceil(currentDeforestationCount + deforestationIncrement);
-      countryDeforestationGuessHeader.innerHTML = currentDeforestationCount.toLocaleString('en-US') + " ha";
+      currentDeforestationCount = +currentDeforestationCount + deforestationIncrement;
+      countryDeforestationGuessHeader.innerHTML = Math.floor(currentDeforestationCount).toLocaleString('en-US') + " ha";
       rightContainer.style["background-color"] = getColorFromRange(parseInt(currentDeforestationCount));
   
       currentIndex++;
